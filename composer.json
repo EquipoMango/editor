@@ -1,0 +1,15 @@
+{
+    "name": "Editor",
+    "description": "App de nextcloud",
+    "type": "project",
+    "license": "AGPL",
+    "authors": [
+        {
+            "name": "Esteban y Jonathan"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^5.4"
+    }
+}
