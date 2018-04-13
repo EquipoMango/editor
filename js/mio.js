@@ -1,0 +1,3 @@
+$( ".lista" ).click(function() {
+  $(this)
+});

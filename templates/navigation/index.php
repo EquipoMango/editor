@@ -10,7 +10,7 @@
 	    </div>
 	    <div class="app-navigation-entry-edit">
 	        <form>
-	            <input type="text" value="Folder entry">
+	            <input class ="buscar" type="text" value="Buscar documento">
 	            <input type="submit" value="" class="icon-close">
 	            <input type="submit" value="" class="icon-checkmark">
 	        </form>
@@ -21,14 +21,12 @@
     <!-- This is optional -->
     <button class="collapse"></button>
 
-    <a href="#" class="icon-folder">Folder collapsed menu</a>
+    <a href="#" class="icon-folder lista">Teplates guardados:</a>
     <ul>
         <li><a href="#">Simple entry</a></li>
         <li><a href="#">Simple entry</a></li>
         <li><a href="#">Simple entry</a></li>
-        <li>
-            <a class="icon-folder" href="#">Simple folder</a>
-        </li>
+     
     </ul>
 </li>
 </ul>

@@ -1,5 +1,5 @@
 <?php
-script('editor', 'script');
+script('editor', array('script','jquery-3.3.1.min','mio'));
 style('editor', 'style');
 ?>
 
@@ -15,4 +15,3 @@ style('editor', 'style');
 		</div>
 	</div>
 </div>
-
