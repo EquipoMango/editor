@@ -1,6 +1,6 @@
 var valor = "";
 $( '.lista li a' ).click(function(){
-  	 valor = $( this ).html();
+  	valor = $( this ).html();
   	
   	$('.buscar').val(valor).show().focus();
 

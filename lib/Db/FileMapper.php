@@ -7,7 +7,7 @@ use OCP\AppFramework\Db\Mapper;
 class FileMapper extends Mapper {
 
     public function __construct(IDbConnection $db) {
-        parent::__construct($db, 'oc_editor_files', '\OCA\Editor\Db\File');
+        parent::__construct($db, 'editor_files', '\OCA\Editor\Db\File');
     }
 
     public function find($id) {

@@ -52,12 +52,36 @@ class PageController extends Controller {
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
 	 */
-	public function getfile() {
-		$file = new File();
-		$file->setTitle("Titulo");
-		$file->setContent("Contenido");
-
+	public function getfiles() {
 		$tmpl = new JSONResponse($this->mapper->findAll());//, [
+         //   'appName'            => $this->appName,
+        //], '');
+
+       return $tmpl;
+		//return new TemplateResponse('editor', 'index');  // templates/index.php
+	}
+	/*
+	 * @NoAdminRequired
+	 * @NoCSRFRequired
+	 */
+	public function getfile($id) {
+		$tmpl = new JSONResponse($this->mapper->find($id));//, [
+         //   'appName'            => $this->appName,
+        //], '');
+
+       return $tmpl;
+		//return new TemplateResponse('editor', 'index');  // templates/index.php
+	}
+	/*
+	 * @NoAdminRequired
+	 * @NoCSRFRequired
+	 */
+	public function setfile($title, $content) {
+		$file = new File();
+		$file->setTitle($title);
+		$file->setContent($content);
+
+		$tmpl = new JSONResponse($this->mapper->insert($file));//, [
          //   'appName'            => $this->appName,
         //], '');
 
