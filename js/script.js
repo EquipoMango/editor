@@ -1,13 +1,28 @@
 
 (function (OC, window, $, undefined) {
 	'use strict';
+	function renderList(){
+	 	$.ajax({
+		  	url: OC.generateUrl('/apps/editor/getfile'), 
+		   	success: function(result){
+		   				var content = "";
+		   				result.forEach(function(data, index) {  								 								
+  							content = content + '<li id="file' + data.id + ' "><a href="#">'+ data.title +"</a></li>";
+  							$('#lista').html(content);
+						});
+		   			 }
+		});
+	}		
 	$( document ).ready(function() {
-			$("button").click(function(){
+		renderList();
+		$("button").click(function(){
 		    $.ajax({
 		    	url: OC.generateUrl('/apps/editor/getfile'), 
 		    	success: function(result){
-		    				result.forEach(function(data, index) {
-  								alert(index + ": " +data.title);
+		    				var content = "";
+		    				result.forEach(function(data, index) {  																
+  								content = content + '<li id="file' + data.id + ' "><a href="#">'+ data.title +"</a></li>";
+  								$('#lista').html(content);
 							});
 		    			 }
 			});
