@@ -4,15 +4,21 @@
 	var valor = "";
 	var despues = "";
 	var active = "";
+	var show = false;
 	function renderList(){
 	 	$.ajax({
 		  	url: OC.generateUrl('/apps/editor/getfile'), 
 		   	success: function(result){
 		   				var content = "";
-		   				result.forEach(function(data, index) {  								 								
-  							content = content + '<li><a href="#" id="' + data.id + '" class = "fileTitle">'+ data.title +"</a></li>";
-  							$('.lista').html(content);
-						});
+		   				if(!$.isEmptyObject(result)){		   					
+		   					result.forEach(function(data, index) {  								 								
+  								content = content + '<li><a href="#" id="' + data.id + '" class = "fileTitle">'+ data.title +"</a></li>";
+  								$('.lista').html(content);
+							});
+		   				}
+		   				else{
+		   					$('.lista').html("No hay archivos");
+		   				}
 		   			 }
 		});
 	}	
@@ -21,7 +27,6 @@
                 url: OC.generateUrl('/apps/editor/destroyfile') + '/' + id,
                 method: 'DELETE'
         }).done(function (data) {
-        		alert(data);
                renderList();
         }).fail(function () {
                 
@@ -32,7 +37,6 @@
 		  	url: OC.generateUrl('/apps/editor/getfile') + "/" + id, 
 		   	success: function(result){		   				  								 								
   						var content = result.content;
-  						alert(content);
   						$("iframe").contents().find("#tinymce").html(content);
 		   			 }
 		});
@@ -107,6 +111,17 @@
 		    });
 		    */
   		
+		});
+
+		$( '.collapse' ).click(function(){
+			if(show){
+				$(".collapsible").removeClass( "open" );
+				show = false;
+			}
+			else {
+				$(".collapsible").addClass( "open" );
+				show = true;
+			}
 		});
 	
 	});

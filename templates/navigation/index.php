@@ -10,18 +10,19 @@
 	    </div>
 	    <div class="app-navigation-entry-edit">
 	        <form>
-	            <input class ="buscar" type="text" value="Buscar documento">
+	            <input class ="buscar" type="text" placeholder="Escribe titulo" value="">
 	            <input type="submit" value="" class="icon-close eliminar">
 	            <input type="submit" value="" class="icon-checkmark aceptar">
+	            <input id="save" type="submit" value="" class="icon-add">
 	        </form>
 	    </div>
 	</li>
-	<li class="collapsible open">
+	<li class="collapsible">
 
     <!-- This is optional -->
     <button class="collapse"></button>
 
-    <a href="#" class="icon-folder ">Templates guardados:</a>
+    <a href="#" class="icon-folder ">Mis templates:</a>
     <ul  class="lista">
 	</ul>
  
