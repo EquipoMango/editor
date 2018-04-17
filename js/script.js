@@ -6,7 +6,9 @@
 		    $.ajax({
 		    	url: OC.generateUrl('/apps/editor/getfile'), 
 		    	success: function(result){
-		        			alert(result);
+		    				result.forEach(function(data, index) {
+  								alert(index + ": " +data.title);
+							});
 		    			 }
 			});
 		});

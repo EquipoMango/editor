@@ -5,7 +5,7 @@
     <name>Editor</name>
     <summary>App de nextcloud</summary>
     <description><![CDATA[App de nextcloud]]></description>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <licence>agpl</licence>
     <author mail="estebancureno@hotmail.com" >Esteban y Jonathan</author>
     <namespace>Editor</namespace>

@@ -6,13 +6,17 @@ use OCP\AppFramework\Http\ContentSecurityPolicy;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
+use OCP\AppFramework\Http\JSONResponse;
+
+use OCA\Editor\Db\File;
+use OCA\Editor\Db\FileMapper;
 
 class PageController extends Controller {
-	private $userId;
+	private $mapper;
 
-	public function __construct($AppName, IRequest $request, $UserId){
+	public function __construct($AppName, IRequest $request, FileMapper $mapper){
 		parent::__construct($AppName, $request);
-		$this->userId = $UserId;
+		$this->mapper = $mapper;
 	}
 
 	/**
@@ -49,7 +53,11 @@ class PageController extends Controller {
 	 * @NoCSRFRequired
 	 */
 	public function getfile() {
-		$tmpl = new DataResponse(array('a','b','c'));//, [
+		$file = new File();
+		$file->setTitle("Titulo");
+		$file->setContent("Contenido");
+
+		$tmpl = new JSONResponse($this->mapper->findAll());//, [
          //   'appName'            => $this->appName,
         //], '');
 
