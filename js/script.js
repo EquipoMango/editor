@@ -3,6 +3,7 @@
 	'use strict';
 	var valor = "";
 	var despues = "";
+	var active = "";
 	function renderList(){
 	 	$.ajax({
 		  	url: OC.generateUrl('/apps/editor/getfile'), 
@@ -15,7 +16,17 @@
 		   			 }
 		});
 	}	
-
+	function destroyFile(id){
+		$.ajax({
+                url: OC.generateUrl('/apps/editor/destroyfile') + '/' + id,
+                method: 'DELETE'
+        }).done(function (data) {
+        		alert(data);
+               renderList();
+        }).fail(function () {
+                
+        });
+	}
 	function getFile(id){
 		$.ajax({
 		  	url: OC.generateUrl('/apps/editor/getfile') + "/" + id, 
@@ -42,6 +53,22 @@
   			 	);
 	}
 
+	function updateFile(id, title, content){
+		$.post( 
+			    OC.generateUrl('/apps/editor/updatefile'), 
+			    { 
+			    	id: id,
+			    	title: title, 
+			    	content: content 
+			    }
+			   ).done(
+			  	    	function( data ) 
+			  			{
+    						renderList();
+  						}
+  			 	);
+	}
+
 	$( document ).ready(function() {		
 		renderList();	
 		$('#save').click(function(){
@@ -53,23 +80,32 @@
 		$(".lista").on("click", "li a", function(e){
 			valor = $( this ).html();  	
   			$('.buscar').val(valor).show().focus();
-  			getFile($(this).attr("id"));
+  			active = $(this).attr("id");
+  			getFile(active);
+
 		});
 
 		$( '.aceptar' ).click(function() {	
+			var titulo = $(".buscar").val();
+		    var contenido = $("iframe").contents().find("#tinymce").html();
+		    updateFile(active, titulo, contenido);	
+			/*
 			despues = $('.buscar').val();	
 			$('.lista li a').each(function(){
 	        	if ( $(this).text() == valor){
 	        		$( this ).html(despues);
 	        	}
-	    	});  		
+	    	});
+	    	*/  		
 		});
 		$( '.eliminar' ).click(function() {			
-			$('.lista li a').each(function(){
+			destroyFile(active);
+			/*$('.lista li a').each(function(){
 		        if ( $(this).text() == valor){
 		        	$( this ).remove();
 		        }
 		    });
+		    */
   		
 		});
 	

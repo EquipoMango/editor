@@ -9,10 +9,12 @@
  */
 return [
     'routes' => [
-	   ['name' => 'page#index',   'url' => '/',        'verb' => 'GET'],
-	   ['name' => 'page#getfiles', 'url' => '/getfile', 'verb' => 'GET'],
-	   ['name' => 'page#getfile', 'url' => '/getfile/{id}', 'verb' => 'GET'],
-	   ['name' => 'page#setfile', 'url' => '/setfile', 'verb' => 'POST'],
-	   ['name' => 'page#do_echo', 'url' => '/echo',    'verb' => 'POST'],
+	   ['name'=> 'page#index',   'url'  => '/',        'verb'      => 'GET'],
+	   ['name'=> 'page#getfiles', 'url' => '/getfile', 'verb'      => 'GET'],
+	   ['name'=> 'page#getfile', 'url'  => '/getfile/{id}', 'verb' => 'GET'],
+	   ['name'=> 'page#destroyfile', 'url'  => '/destroyfile/{id}', 'verb' => 'DELETE'],
+	   ['name'=> 'page#updatefile', 'url'  => '/updatefile', 'verb' => 'POST'],
+	   ['name'=> 'page#setfile', 'url'  => '/setfile', 'verb'      => 'POST'],
+	   ['name'=> 'page#do_echo', 'url'  => '/echo',    'verb'      => 'POST'],
     ]
 ];

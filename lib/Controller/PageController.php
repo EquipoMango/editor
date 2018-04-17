@@ -88,5 +88,40 @@ class PageController extends Controller {
        return $tmpl;
 		//return new TemplateResponse('editor', 'index');  // templates/index.php
 	}
+	/*
+	 * @NoAdminRequired
+	 * @NoCSRFRequired
+	 */
+	public function destroyfile($id) {
+		 try 
+		 {
+             $file = $this->mapper->find($id);
+         } 
+         catch(Exception $e) 
+         {
+             return new DataResponse([], Http::STATUS_NOT_FOUND);
+         }
+         $this->mapper->delete($file);
+         $tmpl = new JSONResponse($file);
+         return $tmpl;
+	}
+	/*
+	 * @NoAdminRequired
+	 * @NoCSRFRequired
+	 */
+	public function updatefile($id, $title, $content) {
+		 try 
+         {
+             $file = $this->mapper->find($id);//$id);
+         } 
+         catch(Exception $e) 
+         {
+             return new DataResponse([], Http::STATUS_NOT_FOUND);
+         }
+         $file->setTitle($title);
+         $file->setContent($content);
+         $tmpl = new JSONResponse($this->mapper->update($file));
 
+         return $tmpl;
+	}
 }
