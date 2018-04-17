@@ -44,5 +44,17 @@ class PageController extends Controller {
        return $tmpl;
 		//return new TemplateResponse('editor', 'index');  // templates/index.php
 	}
+	/*
+	 * @NoAdminRequired
+	 * @NoCSRFRequired
+	 */
+	public function getfile() {
+		$tmpl = new DataResponse(array('a','b','c'));//, [
+         //   'appName'            => $this->appName,
+        //], '');
+
+       return $tmpl;
+		//return new TemplateResponse('editor', 'index');  // templates/index.php
+	}
 
 }
