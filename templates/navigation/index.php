@@ -22,7 +22,8 @@
     <button class="collapse"></button>
 
     <a href="#" class="icon-folder ">Templates guardados:</a>
-    <ul id="lista" class="lista">
-    </ul>
+    <ul  class="lista">
+	</ul>
+ 
 </li>
 </ul>

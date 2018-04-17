@@ -1,8 +1,8 @@
 var valor = "";
-$( ".lista li a" ).click(function(){
+$( '.lista li a' ).click(function(){
   	 valor = $( this ).html();
   	
-  	$(".buscar").val(valor).show().focus();
+  	$('.buscar').val(valor).show().focus();
 
   	
 		/*if ( valor2 != valor ) {
@@ -11,20 +11,20 @@ $( ".lista li a" ).click(function(){
 });
   	
 var despues = "";
-$( ".aceptar" ).click(function() {
+$( '.aceptar' ).click(function() {
 	
-	despues = $(".buscar").val();
+	despues = $('.buscar').val();
 	
-	$(".lista li a").each(function(){
+	$('.lista li a').each(function(){
         if ( $(this).text() == valor){
         	$( this ).html(despues);
         }
     });
   		
 });
-$( ".eliminar" ).click(function() {
+$( '.eliminar' ).click(function() {
 	
-	$(".lista li a").each(function(){
+	$('.lista li a').each(function(){
         if ( $(this).text() == valor){
         	$( this ).remove();
         }

@@ -1,5 +1,5 @@
 <?php
-script('editor', array('script','mio'));
+script('editor', array('script'));//,'mio'));
 style('editor', 'style');
 ?>
 
