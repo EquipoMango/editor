@@ -30,6 +30,9 @@ class PageController extends Controller {
 	 * @NoCSRFRequired
 	 */
 	public function index() {
+
+
+	 
 		$tmpl = new TemplateResponse($this->appName, 'index');//, [
          //   'appName'            => $this->appName,
         //], '');
